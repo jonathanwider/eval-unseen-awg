@@ -1,6 +1,8 @@
 # Evaluation code for unseen-awg
 
-To use this repository, make use of the conda environment defined in the main unseen-awg repository. Use pip after navigating to the base directory of eval-unseen-awg to also install the analyses:
+This repository accompanies the `unseen-awg` model code. It contains a set of evaluations we performed using different versions of weather generators.
+
+To use this repository, make use of the conda environment defined in the main `unseen-awg` repository. Use pip after navigating to the base directory of eval-unseen-awg to also install the analyses:
 
 `pip install -e .`
 
