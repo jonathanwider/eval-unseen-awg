@@ -1,0 +1,74 @@
+variables:
+  geopotential_height:
+    era5:
+      file_name: geopotential_500hPa_daily_mean
+      var_name: z
+    reforecasts:
+      var_name: z
+    regridding_type: bilinear
+    reduction: mean
+    units: dam
+    conversion: geopotential_to_height
+    cf_cell_methods: "lead_time: point"
+    cf_final_cell_methods: "lead_time: mean"
+    cf_final_long_name: Mean geopotential height
+    cf_final_standard_name: geopotential_height  # in case a variable conversion happens along the way.
+    cf_additional_coordinate:
+      pressure:
+        long_name: pressure
+        value: 500
+        units: hPa
+        positive: down
+        standard_name: air_pressure
+  tp:
+    era5:
+      file_name: total_precipitation_daily_sum
+      var_name: tp
+    reforecasts:
+      var_name: tp
+    regridding_type: conservative
+    reduction: max # because precipitation is stored cumulatively, max is equivalent to sum of the diffs.
+    units: mm
+    cf_standard_name: lwe_thickness_of_precipitation_amount
+    cf_final_long_name: Liquid water equivalent thickness of total precipitation amount
+    cf_cell_methods: "lead_time: sum (interval: 6 hours)"
+    cf_final_cell_methods: "lead_time: sum"
+  t2m:
+    era5:
+      file_name: 2m_temperature_daily_mean
+      var_name: t2m
+    reforecasts:
+      var_name: t2m
+    regridding_type: bilinear
+    reduction: mean
+    units: degC
+    cf_standard_name: air_temperature
+    cf_final_long_name: Mean temperature at 2 metres
+    cf_cell_methods: "lead_time: point"
+    cf_final_cell_methods: "lead_time: mean"
+  mx2t:
+    era5:
+      file_name: 2m_temperature_daily_maximum
+      var_name: t2m
+    reforecasts:
+      var_name: mx2t6
+    regridding_type: bilinear
+    reduction: max
+    units: degC
+    cf_standard_name: air_temperature
+    cf_final_long_name: Maximum temperature at 2 metres
+    cf_cell_methods: "lead_time: maximum (interval: 6 hours)"
+    cf_final_cell_methods: "lead_time: maximum"
+  mn2t:
+    era5:
+      file_name: 2m_temperature_daily_minimum
+      var_name: t2m
+    reforecasts:
+      var_name: mn2t6
+    regridding_type: bilinear
+    reduction: min
+    units: degC
+    cf_standard_name: air_temperature
+    cf_final_long_name: Minimum temperature at 2 metres
+    cf_cell_methods: "lead_time: minimum (interval: 6 hours)"
+    cf_final_cell_methods: "lead_time: minimum"

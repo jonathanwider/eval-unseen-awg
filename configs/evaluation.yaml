@@ -1,0 +1,233 @@
+
+
+
+trajectories_climatology:
+  sigmas: [0.25, 2.5, 250]
+  n_seeds: 500
+  blocksizes: [1,30,44]
+  all_params:
+    - "trajectories_climatology.sigmas"
+    - "trajectories_climatology.n_seeds"
+    - "trajectories_climatology.blocksizes"
+  untracked_params:
+
+eval_autocorrelation:
+  year_min: 2003
+  n_years: 21
+  months: [6, 7, 8]
+  var: t2m
+  latitude: 51.340199
+  longitude: 12.360103
+  subset_tau: [1, 3, 7]
+  n_seeds: 500
+
+  all_params:
+    - "eval_autocorrelation.year_min"
+    - "eval_autocorrelation.n_years"
+    - "eval_autocorrelation.months"
+    - "eval_autocorrelation.var"
+    - "eval_autocorrelation.latitude"
+    - "eval_autocorrelation.longitude"
+    - "eval_autocorrelation.subset_tau"
+    - "eval_autocorrelation.n_seeds"
+    - "sigma"
+    - "use_bias_corrected"
+  untracked_params:
+
+eval_count_wet_dry_transitions:
+  year_min: 2003
+  n_years: 21
+  months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  n_seeds: 500
+  blocksize: 30
+  drizzle_threshold: 1 # currently we set all precip below 1mm/d to zero in postprocessing anyway.
+  all_params:
+    - "eval_count_wet_dry_transitions.year_min"
+    - "eval_count_wet_dry_transitions.n_years"
+    - "eval_count_wet_dry_transitions.months"
+    - "eval_count_wet_dry_transitions.n_seeds"
+    - "sigma"
+    - "eval_count_wet_dry_transitions.blocksize"
+    - "eval_count_wet_dry_transitions.drizzle_threshold"
+    - "use_bias_corrected"
+  untracked_params:
+
+eval_driest_year:
+  year_min: 2003
+  n_years: 21
+  n_seeds: 500
+  blocksize: 30
+  all_params:
+    - "eval_driest_year.year_min"
+    - "eval_driest_year.n_years"
+    - "eval_driest_year.n_seeds"
+    - "sigma"
+    - "eval_driest_year.blocksize"
+    - "use_bias_corrected"
+  untracked_params:
+
+eval_dryspell_lengths:
+  year_min: 2003
+  n_years: 21
+  drizzle_threshold: 1
+  n_largest: 100
+  n_seeds: 500
+  blocksize: 30
+  all_params:
+    - "eval_dryspell_lengths.year_min"
+    - "eval_dryspell_lengths.n_years"
+    - "eval_dryspell_lengths.drizzle_threshold"
+    - "eval_dryspell_lengths.n_largest"
+    - "eval_dryspell_lengths.n_seeds"
+    - "sigma"
+    - "eval_dryspell_lengths.blocksize"
+    - "use_bias_corrected"
+  untracked_params:
+
+
+eval_hot_day_connected_components:
+  year_min: 2003
+  n_years: 21
+  quantiles: [0.9, 0.95, 0.98]
+  lsm_threshold: 0.5
+  months: [6,7,8]
+  n_seeds: 500
+  blocksize: 30
+  all_params:
+    - "eval_hot_day_connected_components.year_min"
+    - "eval_hot_day_connected_components.n_years"
+    - "eval_hot_day_connected_components.quantiles"
+    - "eval_hot_day_connected_components.lsm_threshold"
+    - "eval_hot_day_connected_components.months"
+    - "eval_hot_day_connected_components.n_seeds"
+    - "sigma"
+    - "eval_hot_day_connected_components.blocksize"
+    - "use_bias_corrected"
+  untracked_params:
+
+eval_hot_ndays_connected_components:
+  year_min: 2003
+  n_years: 21
+  quantiles: [0.8, 0.9, 0.95]
+  lsm_threshold: 0.5
+  months: [6,7,8]
+  n_seeds: 500
+  blocksize: 30
+  all_params:
+    - "eval_hot_ndays_connected_components.year_min"
+    - "eval_hot_ndays_connected_components.n_years"
+    - "eval_hot_ndays_connected_components.quantiles"
+    - "eval_hot_ndays_connected_components.lsm_threshold"
+    - "eval_hot_ndays_connected_components.months"
+    - "eval_hot_ndays_connected_components.n_seeds"
+    - "sigma"
+    - "eval_hot_ndays_connected_components.blocksize"
+    - "use_bias_corrected"
+  untracked_params:
+
+eval_rx5d:
+  year_min: 2003
+  n_years: 21
+  n_seeds: 500
+  blocksize: 30
+  indicator: atmos.max_n_day_precipitation_amount
+  indicator_kwargs:
+    window: 5
+    freq: YS
+    pr: tp
+  all_params:
+    - "eval_rx5d.year_min"
+    - "eval_rx5d.n_years"
+    - "eval_rx5d.n_seeds"
+    - "sigma"
+    - "eval_rx5d.blocksize"
+    - "use_bias_corrected"
+    - "eval_rx5d.indicator"
+    - "eval_rx5d.indicator_kwargs"
+  untracked_params:
+
+eval_p_annual_sum:
+  year_min: 2003
+  n_years: 21
+  n_seeds: 500
+  blocksize: 30
+  indicator: atmos.precip_accumulation
+  indicator_kwargs:
+    freq: YS
+    pr: tp
+  all_params:
+    - "eval_p_annual_sum.year_min"
+    - "eval_p_annual_sum.n_years"
+    - "eval_p_annual_sum.n_seeds"
+    - "sigma"
+    - "eval_p_annual_sum.blocksize"
+    - "use_bias_corrected"
+    - "eval_p_annual_sum.indicator"
+    - "eval_p_annual_sum.indicator_kwargs"
+  untracked_params:
+
+eval_quantile_maps:
+  year_min: 2003
+  n_years: 21
+  n_seeds: 500
+  blocksize: 30
+  quantiles: [0.1, 0.25, 0.5, 0.75, 0.90]
+  all_params:
+  - "eval_quantile_maps.year_min"
+  - "eval_quantile_maps.n_years"
+  - "eval_quantile_maps.n_seeds"
+  - "sigma"
+  - "eval_quantile_maps.blocksize"
+  - "use_bias_corrected"
+  - "eval_quantile_maps.quantiles"
+  untracked_params:
+
+
+eval_rolling_droughts:
+  year_min: 2003
+  n_years: 21
+  n_seeds: 500
+  blocksize: 30
+  lsm_threshold: 0.5
+  all_params:
+  - "eval_rolling_droughts.year_min"
+  - "eval_rolling_droughts.n_years"
+  - "eval_rolling_droughts.n_seeds"
+  - "sigma"
+  - "eval_rolling_droughts.blocksize"
+  - "use_bias_corrected"
+  - "eval_rolling_droughts.lsm_threshold"
+  untracked_params:
+
+eval_seasonal_correlation:
+  year_min: 2003
+  n_years: 21
+  n_seeds: 500
+  blocksize: [1,7,14,30,44]
+  months: [6,7,8]
+  all_params:
+  - "eval_seasonal_correlation.year_min"
+  - "eval_seasonal_correlation.n_years"
+  - "eval_seasonal_correlation.n_seeds"
+  - "sigma"
+  - "eval_seasonal_correlation.blocksize"
+  - "use_bias_corrected"
+  - "eval_seasonal_correlation.months"
+  untracked_params:
+
+
+eval_unprecedented_hot_dry:
+  year_min: 2003
+  n_years: 21
+  n_seeds: 500
+  blocksize: 30
+  months: [6,7,8]
+  all_params:
+  - "eval_unprecedented_hot_dry.year_min"
+  - "eval_unprecedented_hot_dry.n_years"
+  - "eval_unprecedented_hot_dry.n_seeds"
+  - "sigma"
+  - "eval_unprecedented_hot_dry.blocksize"
+  - "use_bias_corrected"
+  - "eval_unprecedented_hot_dry.months"  
+  untracked_params:

@@ -1,0 +1,22 @@
+# Figure settings
+figure.figsize: 6.3, 4.7
+figure.constrained_layout.use: True
+
+# Font settings
+font.size: 9
+axes.labelsize: 9
+xtick.labelsize: 8
+ytick.labelsize: 8
+
+
+# Grid settings
+axes.grid: True
+grid.linestyle: --
+grid.alpha: 0.7
+
+# Color settings
+axes.prop_cycle: cycler('color', ['006BA4', 'FF800E', 'ABABAB', '595959', '5F9ED1', 'C85200', '898989', 'A2C8EC', 'FFBC79', 'CFCFCF'])  # from matplotlib colorblind friendly palette.
+image.cmap: cmc.batlow
+
+# Save settings
+savefig.bbox: tight
