@@ -6,4 +6,4 @@ To use this repository, make use of the conda environment defined in the main `u
 
 `pip install -e .`
 
-For practical reasons we also use `configs/paths.yaml` and `configs/variables.yaml` files here in adition to those defined in `unseen-awg`. To avoid errors, their contents should be identical to that of the configs in the `unseen-awg`.repository.
+For practical reasons we also use `configs/paths.yaml` and `configs/variables.yaml` files here in adition to those defined in `unseen-awg`. To avoid errors, their contents should be identical to that of the configs in the `unseen-awg` repository.
